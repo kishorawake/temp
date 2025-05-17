@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules         # Prevent host from overwriting container's node_modules
+    networks:
+      - chatnet
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./frontend:/frontend
+    depends_on:
+      - backend
+    networks:
+      - chatnet
+
+networks:
+  chatnet:
+    driver: bridge

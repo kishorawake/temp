@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+  <script type="module" src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="heading-with-animations">
+    <img src="animations/1.gif" alt="Book GIF" class="title-gif" />
+    <h1 class="pulse-heading">Live Chat App with Virtual Assistant</h1>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+
+  <!-- Main Layout -->
+  <div class="chat-layout">
+
+    <!-- Sidebar Users -->
+    <aside class="user-sidebar">
+      <h3>Users Online</h3>
+      <div id="user-list"></div>
+    </aside>
+
+    <!-- Lottie Sidebar -->
+    <aside class="sidebar-animation">
+      <dotlottie-player id="lottie-avatar"
+        src="https://lottie.host/8b080c93-546e-43ca-96aa-56737112b2a3/WUt7LEpByT.lottie"
+        background="transparent" speed="1" loop autoplay>
+      </dotlottie-player>
+      <audio id="sidebar-music" autoplay loop></audio>
+    </aside>
+
+    <!-- Chat Container -->
+    <main class="chat-container">
+
+      <!-- Chat Box -->
+      <div class="chat-box-wrapper">
+        <dotlottie-player
+          src="https://lottie.host/03e9c382-29a0-489b-b6dc-9b71e8586858/dkkTwATbTD.lottie"
+          background="transparent" speed="5" loop autoplay class="chatbox-lottie">
+        </dotlottie-player>
+        <div id="chat-box" class="chat-box"></div>
+        <div id="typing-status" class="typing-status"></div>
+      </div>
+
+      <!-- Input -->
+      <div class="input-container">
+        <img src="" alt="User Avatar" class="avatar" id="avatar" />
+        <textarea id="msgInput" placeholder="Type a message..."></textarea>
+        <div class="emoji-wrapper">
+          <button id="emoji-trigger">😊</button>
+          <div id="main-emoji-picker" class="emoji-picker-container" style="display: none;"></div>
+        </div>
+        <button id="send-btn">Send</button>
+        <input type="file" id="fileInput" />
+        <button onclick="uploadFile()">Send File</button>
+      </div>
+
+      <!-- Assistant Animation Strip -->
+      <div class="assistant">
+        <dotlottie-player class="anim-1" src="https://lottie.host/5b136ecb-6bde-487d-a2c5-fd72bd95a7e6/WBq6TnKLQy.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        <dotlottie-player class="anim-2" src="https://lottie.host/670b8851-960d-4f52-a55b-9aef0c1e52b3/q743O5UgzL.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        <dotlottie-player class="anim-3" src="https://lottie.host/d5fb28bc-a0bb-40ee-8a4d-5fa91d053771/pL8DlxfnFh.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        <dotlottie-player class="anim-4" src="https://lottie.host/b7ebc2f9-0f09-44e1-9eaf-be6eb19eaf49/gvK2JaGVXj.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        <dotlottie-player class="anim-5" src="https://lottie.host/120f180c-1f4c-4089-bf83-7f967668767e/i4JzEa8T80.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
